@@ -376,5 +376,17 @@ body{
     cursor: pointer;
 }
 
-
-
+.popup-container-add-customer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+    z-index: 1001;
+    visibility: hidden;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATM</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +21,11 @@
         <div class="form-container sign-up">
             <form action="" class="form">
                 <h1 class="sign-up-text">Registrate</h1>
-                <div>
-                    <input type="text" name="name" placeholder="Nombre">
-                    <input type="tel" name="name" placeholder="Teléfono">
-                    <input type="email" name="name" placeholder="Email">
-                    <input id="userRegister" type="text" name="name" placeholder="Usuario">
-                    <input id="passwordRegister" type="password" name="name" placeholder="Contraseña">
+                <div style="width: 100%;">
+                    <input type="text" name="usernameReg" placeholder="Usuario">
+                    <input type="password" name="passwordReg" placeholder="Contraseña">
+                    <input type="email" name="emailReg" placeholder="Email">
+                    <input type="number" name="idReg" placeholder="Identificación o DPI">
                     <button id="SignUp">Registrame</button>
                 </div>
             </form>
@@ -67,6 +67,17 @@
                 <button id="iniciarPIN" class="button-PIN hidden-bPIN">INICIAR</button>
             </form>
             <img src="/img/close.png" alt="" class="close" id="closeButton">
+        </div>
+    </div>
+    <div id="PopupAddCustomer" class="popup-container-add-customer">
+        <div class="popup-content">
+            <h2>No se encontró un cliente registrado</h2>
+            <form class="form-pin">
+                <label for="">Ingrese los datos requeridos:</label>
+                <input type="text" placeholder="Nombre completo" name="name" disabled>
+                <button id="BtnAddCustomer" class="button-PIN hidden-bPIN">Registrarme</button>
+            </form>
+            <img src="/img/close.png" alt="" class="close" id="closeButtonAddCustomer">
         </div>
     </div>
     <script src="script.js"></script>
