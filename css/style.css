@@ -1,0 +1,281 @@
+:root{
+    --primary: #9F9DF3; 
+    --darkPrimary: #6865f7; 
+    --secundary: #FFEA65; 
+    --darkSecundary: #FFC71F; 
+    --white: #fff; 
+    --dark: #000; 
+    --gray: #757575; 
+    --background-gradient: #d7d6ec;
+    --inputbg: #eee; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Krub", sans-serif;
+}
+
+body{
+    background-color: var(--background-gradient);
+    background: linear-gradient(to right, var(--background-gradient), var(--white));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* container responsive */
+.container{
+    background-color: var(--white);
+    border-radius: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 48rem;
+    max-width: 100%;
+    min-height: 30rem;
+    }   
+
+@media (min-width: 250px) and (max-width: 344px) {
+    .container {
+        background-color: var(--white);
+        border-radius: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 16rem;
+        max-width: 100%;
+    }
+}
+@media (min-width: 345px) and (max-width: 425px) {
+    .container {
+        background-color: var(--white);
+        border-radius: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 20rem;
+        max-width: 100%;
+    }
+}
+@media (min-width: 426px) and (max-width: 720px) {
+    .container {
+        background-color: var(--white);
+        border-radius: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 23rem;
+        max-width: 100%;
+    }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+    .container {
+        background-color: var(--white);
+        border-radius: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 40rem;
+        max-width: 100%;
+    }
+}
+
+/* container styles */
+.container p{
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.3px;
+    margin: 1.25rem 0;
+}
+
+.sign-in-text{
+    margin: 1rem !important;
+}
+
+.sign-up-text{
+    margin: 1rem !important;
+}
+
+.container h1{
+    margin: 0;
+}
+
+
+.container button{
+    background-color: var(--darkPrimary);
+    color: var(--white);
+    font: 0.75rem;
+    padding: 0.62rem 2.8rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 0.62rem;
+    cursor: pointer;
+}
+
+
+.container button.hidden{
+    background-color: transparent;
+    border-color: var(--white);
+}
+
+.container a{
+    background-color: var(--darkPrimary);
+    color: var(--white);
+    font: 0.75rem;
+    padding: 0.62rem 2.8rem;
+    /* border: 1px solid transparent; */
+    /* border-radius: 0.5rem; */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 0.62rem;
+    cursor: pointer;
+}
+
+.container a.hidden{
+    background-color: transparent;
+    border-color: var(--white);
+} 
+
+.container form{
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.5rem;
+    height: 100%;
+}
+
+.container .form-container form div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container input{
+    background-color: var(--inputbg);
+    border: none;
+    margin: 0.5rem, 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+}
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .sign-in{
+    transform: translateX(100%);
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+    background-color: var(--darkPrimary);
+    height: 100%;
+    background: linear-gradient(to right, #9F9DF3, #6865f7);
+    color: var(--white);
+    position: relative;
+    left: -100%;
+    height: 100;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 1.8rem;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right{
+    transform: translateX(200%);
+}
+
