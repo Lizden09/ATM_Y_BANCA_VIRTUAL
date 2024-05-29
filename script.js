@@ -27,11 +27,39 @@ loginData.addEventListener('click', event =>{
     }
     console.log(loginRequest);
 
-    fetch(''),{
+    fetch('https://atmsystemapibank.onrender.com/auth/login', {
         method:'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-    }
+    }).then(res => res.json())
+      .then(data => console.log(data))
 })
+
+// popup
+let openPopUp = document.getElementById('openPopup');
+let Popup = document.getElementById('popup');
+let buttonIniciarPIN = document.getElementById('iniciarPIN');
+let close = document.getElementById('closeButton');
+
+// abrir popup
+openPopUp.addEventListener('click', (event)=>{
+    event.preventDefault();
+    Popup.style.visibility = "visible"; 
+});
+   
+
+
+// cerrar popup
+// Popup.onclick = function(){
+//     Popup.style.visibility = "hidden";
+// }
+
+buttonIniciarPIN.addEventListener('click', (event)=>{
+    event.preventDefault();
+})
+
+close.onclick = function(){
+    Popup.style.visibility = "hidden";
+}

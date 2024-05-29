@@ -16,7 +16,7 @@
     <h1><span></span></h1>
 </header>
 <body>
-    <div class="container active" id="container">
+    <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="" class="form">
                 <h1 class="sign-up-text">Registrate</h1>
@@ -57,12 +57,18 @@
             </div>
         </div>
     </div>
-    <!-- <div id="popup" class="popup-container">
+    <div id="popup" class="popup-container">
         <div class="popup-content">
             <h2>Acerca tu tarjeta al lector</h2>
-            <img src="/img/scaner_card.png" alt="">
+            <img class="img-scaner" src="/img/scaner_card.png" alt="">
+            <form class="form-pin">
+                <label for="">Ingrese su pin</label>
+                <input type="password" placeholder="Ej: 1234" name="PIN" id="PIN" disabled>
+                <button id="iniciarPIN" class="button-PIN hidden-bPIN">INICIAR</button>
+            </form>
+            <img src="/img/close.png" alt="" class="close" id="closeButton">
         </div>
-    </div> -->
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
