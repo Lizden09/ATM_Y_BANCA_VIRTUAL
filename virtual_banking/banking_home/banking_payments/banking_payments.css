@@ -1,0 +1,204 @@
+:root{
+    --primary: #9F9DF3;
+    --darkPrimary: #6865f7;
+    --secundary: #FFEA65;
+    --darkSecundary: #FFC71F;
+    --white: #fff;
+    --dark: #000;
+    --gray: #757575;
+    --background-gradient: #CFD1EC;
+    --inputbg: #eee;
+    --itembg: #ECEEF4;
+    --verde: #8FD3C6;
+    --verdeOscuro: #58BEAA; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-gradient);
+}
+
+.general-container{
+    width: 65%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.container-home{
+    background-color: var(--white);
+    height: 100%;
+    display: flex;
+}
+
+.side-nav{
+    width: 15rem;
+    height: 100%;
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.side-nav .page-name{
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-name img{
+    min-width: 65px;
+    height: 60px;
+    font-size: 40px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.home-items{
+    /* width: calc(100% - 28rem); */
+    padding: 2rem 1rem;
+    flex-grow: 1;
+}
+
+.items{
+    width: 100%;
+    height: 100%;
+    background-color: var(--itembg);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.profile-nav{
+    width: 15rem;
+    height: 100%;
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    /* position: fixed;
+    right: 0;
+    top: 0; */
+    transition: width 0.6s ease;
+    /* overflow-y: auto;  */
+}
+
+.profile-nav .profile-name{
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+}
+
+#closeButtonProfile{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px !important;
+    height: 24px !important;
+    cursor: pointer;
+}
+
+
+@media (min-width: 1024px) and (max-width: 1200px){ 
+    .general-container{
+        width: 80%;
+    }
+    .side-nav, .profile-nav{
+        width: 10rem;
+    }
+}
+
+.mini-side-nav{
+    width: 5rem;
+    /* transform: translateX(0%);  */
+}
+
+.mini-profile-nav{
+    width: 5rem;
+    /* transform: translateX(0%);  */
+}
+
+/*spans del side nav*/
+.side-nav span{
+    font-size: 1rem;
+    margin-left: 15px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    font-weight: bold;
+    font-family: 'Krub', sans-serif;
+}
+
+.side-nav span:hover{
+    color: var(--darkSecundary);
+}
+
+.side-nav span.hidden{
+    opacity: 0;
+    width: 0;
+}
+
+.side-nav .navigation li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.side-nav .navigation a{
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-family: 'Krub', sans-serif;
+    color: var(--dark);
+}
+
+.side-nav .navigation svg{
+    min-width: 4rem;
+    font-size: 1.25rem;
+
+}
+
+.side-nav .navigation a:hover{
+    background-color: var(--itembg);
+    color: var(--darkSecundary);
+}
+
+.eBanking-text{
+    margin-top: 1rem;
+}
+
+.profile-picture{
+    width: 6rem !important;
+    height: 6rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    border-radius: 50%;
+    /* object-fit: cover; */
+    border: 1px solid var(--gray);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.profile-picture.hidden{
+    opacity: 0;
+    width: 0;
+}
