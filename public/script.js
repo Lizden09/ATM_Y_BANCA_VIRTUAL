@@ -34,14 +34,19 @@ loginData.addEventListener('click', event =>{
         },
         body: JSON.stringify(loginRequest)
     }).then(res => res.json())
-      .then(data => console.log(data))
+      .then(res => {
+        if(res.statusCode == 200){
+            window.location.href = '../virtual_banking/banking_home/banking_home.html';
+        }
+        console.log(res)
+    })
 })
 
 // popup rfid
 let openPopUp = document.getElementById('openPopup');
 let Popup = document.getElementById('popup');
 let buttonIniciarPIN = document.getElementById('iniciarPIN');
-let close = document.getElementById('closeButton');
+let closeBTN = document.getElementById('closeButton');
 
 // abrir popup
 openPopUp.addEventListener('click', (event)=>{
