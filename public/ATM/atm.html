@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js" charset="UTF-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="preload" href="/css/normalize.css" as="style">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="atm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>ATMichiBank</title>
+</head>
+<body>
+    <script src="atm.js"></script>
+    <div class="general-container">
+        <div class="container-inner">
+            <div class="header-container">
+                <div style="display: flex;">
+                    <div class="logo-container">
+                        <img src="../img/logoATM.png" alt="logo">
+                    </div>
+                    <div style="height: 100%; display: flex; align-items: center;">
+                        <label for="">ATMichiBank</label>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+                        <label class="user-name" for="" id="userNameHeader"></label>
+                        <label class="user-email" for="" id="cardNumberHeader"></label>
+                    </div>
+                    <div class="user-container">
+                        <img src="../img/gato.png" alt="logo" style="background: var(--primary); border-radius: 50%;">
+                    </div>
+                </div>
+            </div>
+            <div class="banner-container" style="position: relative;">
+                <img src="../img/astro.svg" alt="image" style="position: absolute; right: 10%; height: 115%; width: auto; box-sizing: border-box;">
+                <div class="banner">
+                    <div class="greetings-container">
+                        <label for="" class="greetings">Hola, BenjaminTzoc</label>
+                        <p>Nos alegra verte. ¿Qué operación deseas realizar hoy?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="buttons-container">
+                    <div class="subcontainer" style="padding: 1rem; padding-left: 0; padding-right: 0.5rem;">
+                        <button class="button-one">
+                            <img class="img-btn-1" src="../img/icons/withdraw.svg" alt="">
+                            <label for="">Retiros</label>
+                        </button>
+                    </div>
+                    <div class="subcontainer">
+                        <div class="second-button">
+                            <button class="button-two">
+                                <img class="img-btn-2" src="../img/icons/wallet.svg" alt="">
+                                <label for="">Pagos</label>
+                            </button>
+                        </div>
+                        <div class="third-button">
+                            <button class="button-three">
+                                <img class="img-btn-3" src="../img/icons/transfer.svg" alt="">
+                                <label for="">Transferencias</label>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-calendar">
+                    <div class="widget-bg">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

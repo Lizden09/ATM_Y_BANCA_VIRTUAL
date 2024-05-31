@@ -84,8 +84,10 @@ openPopUp.addEventListener('click', (event)=>{
                 $('#CardExpiration').text(formattedDate);
                 $('#PIN').prop('disabled', false).focus();
                 $('#iniciarPIN').prop('disabled', false);
+                $('#pinMessage').text('Ingrese su pin')
             }else{
                 imgScanCard.style.display = "inline";
+                $('#pinMessage').text('Tarjeta no encontrada. Intente de nuevo')
             }
         });
     });
@@ -185,6 +187,12 @@ $(document).ready(function() {
         }).then(res => res.json())
         .then(res => {
             console.log(res);
+            if(res.statusCode == 200){
+                localStorage.setItem('authToken', res.data.token);
+                setTimeout(() => {
+                    window.location.href = '../ATM/atm.html'
+                }, 1000);
+            }
         })
     });
 });
