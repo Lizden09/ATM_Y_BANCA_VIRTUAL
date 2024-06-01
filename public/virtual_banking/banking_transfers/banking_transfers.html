@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>Document</title>
     <link rel="preload" href="../../css/normalize.css" as="style">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" 
         rel="stylesheet">
-    <link rel="stylesheet" href="banking_home.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../banking_transfers/banking_transfers.css">
 </head>
 <body>
     <div class="general-container">
         <div class="container-home" id="container-home">
             <div class="side-nav">
                 <div class="page-name">
-                    <img id="logo" src="../../img/logo.png" alt="">
+                    <img id="logo" src="../../../img/logo.png" alt="">
                     <span class="eBanking-text">eBanking</span>
                 </div>
                 <nav class="navigation">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="../banking_home/banking_home.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6865f7" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
@@ -45,7 +44,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../banking_transfers/banking_transfers.html">
+                            <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-transfer" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6865f7" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M20 10h-16l5.5 -6" />
@@ -72,7 +71,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="..//banking_services/banking_services.html">
+                            <a href="../banking_services/banking_services.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bulb" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6865f7" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
@@ -86,11 +85,18 @@
                 </nav>
             </div>
             <div class="home-items">
-                <div class="items" style="width: 100%; height: 100%;">
-                    <div class="greetings">
-                        <span>Hola Tilin</span>
+                <div class="items">
+                    <div style="position: absolute; top: 2%; left: 2%; display: flex; align-items: center;">
+                        <a href="../banking_home/banking_home.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6865f7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l4 4" />
+                                <path d="M5 12l4 -4" />
+                            </svg>
+                        </a>
                     </div>
-                    <div class="card-container" style="width: 100%; height: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center;">
+                    <div class="card-container">
                         <div class="card">
                             <div class="card-inner">
                                 <div style="width: 100%; display: flex; justify-content: space-between;">
@@ -99,7 +105,7 @@
                                         <div class="circle2"></div>
                                     </div>
                                     <div>
-                                        <img src="../../img/contactless.png" alt="contacless" style="height: 2.5rem;">
+                                        <img src="../../../img/contactless.png" alt="contacless" style="height: 2.5rem;">
                                     </div>
                                 </div>
                                 <div style="width: 100%; text-align: left; margin-top: 1.7rem;">
@@ -113,25 +119,38 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="accountBalance">
+                            <span>Saldo actual</span>
+                            <p>Q 5,390.87</p>
+                        </div>
                     </div>
-                    <div class="graphics-container">
-                        <div class="chart">
-                            <canvas id="myChart"></canvas>
+                    <div class="form-container">
+                        <div class="form-container-secundary">
+                            <form action="" class="form form-payment" style="display: flex; justify-content: center;">
+                                <div class="inputs-form">
+                                    <legend>Transferencias</legend>
+                                    <input id="account" type="text" name="account" placeholder="Cuenta">
+                                    <input id="reference" type="number" name="reference" placeholder="Cuenta Destino">
+                                    <input id="amount" type="number" name="amount" placeholder="Monto">
+                                    <div style="width: 100%; text-align: center;">
+                                        <button id="payService">Transferir</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="profile-nav">
                 <div class="profile-name">
-                    <img src="../../img/close.png" alt="" class="close" id="closeButtonProfile" class="closeButton">
+                    <img src="../../../img/close.png" alt="" class="close" id="closeButtonProfile" class="closeButton">
                     <div class="profile-picture-general">
-                        <img id="profilePicture" src="../../img/default-profile.jpg" alt="Foto de Perfil" class="profile-picture" >
+                        <img id="profilePicture" src="../../../img/default-profile.jpg" alt="Foto de Perfil" class="profile-picture" >
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/virtual_banking/banking_home/banking_home.js"></script>
+    <script src="banking_transfers.js"></script>
 </body>
 </html>

@@ -30,6 +30,23 @@ function loadContent(url, callback) {
 
 function loadScreen(path) {
     loadContent(path, function (content) {
-        document.getElementById("contenido").innerHTML = content;
+        var container = document.getElementById("contenido");
+        container.innerHTML = content;
+        executeScripts(container);
     });
+}
+
+function executeScripts(container) {
+    var scripts = container.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+        var script = scripts[i];
+        var newScript = document.createElement("script");
+        if (script.src) {
+            newScript.src = script.src;
+        } else {
+            newScript.textContent = script.textContent;
+        }
+        document.head.appendChild(newScript);
+        document.head.removeChild(newScript); // Eliminar el script para evitar duplicados
+    }
 }

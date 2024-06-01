@@ -69,7 +69,7 @@ body{
 }
 
 .home-items{
-    /* width: calc(100% - 28rem); */
+    width: calc(100% - 28rem);
     padding: 2rem 1rem;
     flex-grow: 1;
 }
@@ -80,6 +80,8 @@ body{
     background-color: var(--itembg);
     border-radius: 1rem;
     padding: 1rem;
+    display: flex;
+    position: relative;
 }
 
 .profile-nav{
@@ -201,4 +203,43 @@ body{
 .profile-picture.hidden{
     opacity: 0;
     width: 0;
+}
+
+.card-services-container{
+    display: flex; 
+    width: 100%; 
+    height: 100%;
+}
+
+.card-electricity{
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-electricity{
+    border-radius: 10px;
+    border: none;
+    width: 60%;
+    height: 60%;
+    background-color: var(--verdeOscuro);
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-electricity img{
+    width: 10rem;
+    height: 10rem;
+}
+
+.service-electricity p{
+    font-family: 'Krub', sans-serif;
+    font-weight: bold;
+    color: var(--white);
+    text-align: center;
+    margin: 1rem 1rem 2rem 1rem;
 }
