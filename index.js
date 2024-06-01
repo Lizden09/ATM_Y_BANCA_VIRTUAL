@@ -9,6 +9,22 @@ const io = new Server(server)
 
 io.on('connection', socket => {
     console.log('A new socket connected');
+
+    socket.on('client:signal', data => {
+        const { amount } = data;
+        const timeInMinutes = amount * 30; // Cada Q1.00 equivale a 1 minuto
+        const timeInMillis = timeInMinutes * 1000; // Convertir minutos a milisegundos
+
+        console.log(`Amount: ${amount}, Time in milliseconds: ${timeInMillis}`);
+
+        port.write(timeInMillis.toString() + '\n', err => {
+            if (err) {
+                console.error('Error sending signal to ESP32:', err.message);
+            } else {
+                console.log('Signal sent to ESP32');
+            }
+        });
+    });
 });
 
 app.use(express.static(__dirname + '/public'));
