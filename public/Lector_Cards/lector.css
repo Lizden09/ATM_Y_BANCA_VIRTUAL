@@ -1,0 +1,227 @@
+:root{
+    --primary: #9F9DF3; 
+    --darkPrimary: #6865f7; 
+    --secundary: #FFEA65; 
+    --darkSecundary: #FFC71F; 
+    --white: #fff; 
+    --dark: #000; 
+    --gray: #757575; 
+    --background-gradient: #d7d6ec;
+    --inputbg: #eee; 
+    --bg-primary: #D7D9F6;
+    --bg-secondary: #EDEEFA;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Krub", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Krub", sans-serif;
+    height: 100vh;
+    background: rgb(238,174,202);
+    background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.general-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container-cards{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.card{
+    width: 27rem;
+    height: 80%;
+    border-radius: 10px;
+    margin-inline: 3rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1rem;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(0deg, #FBAB7E 0%, #F7CE68 100%);
+    box-shadow: 2px 3px 23px -3px rgba(0,0,0,0.75);
+}
+
+.card button{
+    border-radius: 10px;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    border: none;
+    padding-inline: 5rem;
+    padding-block: 0.5rem;
+    color: #FFF;
+    font-weight: 600;
+    margin-block: 0.5rem;
+    cursor: pointer;
+}
+
+.popup-content h2{
+    color: var(--dark);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.img-scaner{
+    width: 14rem;
+    margin-block: 2rem;
+}
+
+.popup-content label{
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.3px;
+    margin: 1rem 0;
+    color: var(--dark);
+}
+
+.popup-content input{
+    background-color: var(--inputbg);
+    border: none;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    text-align: center;
+}
+
+.form-pin, .form-customer-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader-container{
+    height: 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lds-ripple,
+.lds-ripple div {
+  box-sizing: border-box;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid var(--darkPrimary);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+.card-1{
+    width: 18rem;
+    height: 11rem;
+    border-radius: 15px;
+    background: var(--darkPrimary);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: transform 600ms ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 25px 2px rgba(0, 0, 0, 0.2);
+    padding-block: 7%;
+    padding-inline: 7%;
+}
+
+.circles-container{
+    width: 8rem;
+    height: 2.5rem;
+}
+
+.circle1{
+    width: 60%;
+    height: 100%;
+    background: rgba(159, 157, 243, .80);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.circle2{
+    width: 60%;
+    height: 100%;
+    background: rgba(159, 157, 243, .60);
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.card-number{
+    color: #FFF !important;
+    font-family: Montserrat, sans-serif !important;
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+}
+
+.card-name{
+    color: #FFF !important;
+    font-family: Montserrat, sans-serif !important;
+    font-size: 12px !important;
+    letter-spacing: 2px !important;
+}
+
+.input-pin:focus{
+    border: 4px solid var(--darkPrimary);
+}

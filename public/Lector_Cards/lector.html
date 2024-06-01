@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js" charset="UTF-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <link rel="preload" href="/css/normalize.css" as="style">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,25 +13,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" 
         rel="stylesheet">
+    <link rel="stylesheet" href="Lector_Cards/lector.css">
     <title>Lector de Tarjetas</title>
 </head>
 <body>
-    <h1>LECTOR DE TARJETAS</h1>
-    <div style="display: flex; width: 100%;">
-        <div style="width: 28rem; height: 10rem; border: 1px solid #000; border-radius: 10px; margin-inline: 1rem; display: flex; overflow: hidden;">
-            <div class="img-service" style="width: 35%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                <img src="../img/poste-electrico.png" alt="" style="height: 70%;">
-            </div>
-            <div class="img-service" style="width: 65%; height: 100%; background: blue;">
-                <label for="">Energía Eléctrica</label>
-            </div>
+    <div class="general-container">
+        <div style="width: 100%; text-align: center; height: 8rem; display: flex; justify-content: center; align-items: center;">
+            <h1>Activación de Servicios de Energía y Agua Prepago</h1>
         </div>
-        <div style="width: 28rem; height: 10rem; border: 1px solid #000; border-radius: 10px; margin-inline: 1rem;">
-        
-        </div>
-        <div style="width: 28rem; height: 10rem; border: 1px solid #000; border-radius: 10px; margin-inline: 1rem;">
-        
+        <div class="container-cards">
+            <div class="card" id="cardService1">
+                <div class="img-service" style="flex: 1;">
+                    <div style="width: 100%; height: 100%; box-sizing: border-box; justify-content: center; align-items: center; display: flex;">
+                        <img src="../img/poste-electrico.png" alt="" style="height: 16rem;">
+                    </div>
+                </div>
+                <div class="img-service" style="width: 100%; text-align: center; margin-top: 1rem; padding-block: 2rem;">
+                    <label for="" style="font-size: 24px; font-weight: 700;">Energía Eléctrica</label>
+                    <p for="" style="font-size: 26px; font-weight: 700; margin-block: 1rem;">Q.1 <span style="font-size: 16px; color: #424242;">/ Por 30 segs</span></p>
+                    <p style="font-size: 14px; line-height: 25px;">
+                        ¿Listo para consumir luz? Haz clic aquí para activar tu servicio de electricidad prepago. 
+                        Solo necesitas introducir tu tarjeta de recarga y disfrutarás de energía al instante. 
+                        ¡Haz clic y enciende tu hogar o negocio ahora mismo!
+                    </p>
+                    <button id="service1">
+                        ¡Click Aquí!
+                    </button>
+                </div>
+            </div>
+            <div class="card" id="cardService2">
+                <div class="img-service" style="flex: 1;">
+                    <div style="width: 100%; height: 100%; box-sizing: border-box; justify-content: center; align-items: center; display: flex;">
+                        <img src="../img/bomba.png" alt="" style="height: 16rem;">
+                    </div>
+                </div>
+                <div class="img-service" style="width: 100%; text-align: center; margin-top: 1rem; padding-block: 2rem;">
+                    <label for="" style="font-size: 24px; font-weight: 700;">Energía Eléctrica</label>
+                    <p for="" style="font-size: 26px; font-weight: 700; margin-block: 1rem;">Q.10 <span style="font-size: 16px; color: #424242;">/ Por 5 mins</span></p>
+                    <p style="font-size: 14px; line-height: 25px;">
+                        ¿Necesitas agua? Haz clic aquí para activar tu servicio de agua potable prepago. 
+                        Introduce tu tarjeta de recarga y disfruta de agua al instante en tu hogar o negocio. 
+                        ¡Haz clic y asegura tu suministro de agua hoy mismo!
+                    </p>
+                    <button id="service2">
+                        ¡Click Aquí!
+                    </button>
+                </div>
+            </div>
+            <div class="card popup-content" id="cardLector" style="display: none; justify-content: center; align-items: center;">
+                <div style="margin-inline: 3rem; text-align: center;">
+                    <h2 style="margin-bottom: 2rem;" id="title">Acerca tu tarjeta al lector</h2>
+                </div>
+                <img id="imgScanCard" class="img-scaner" src="/img/payment.png" alt="">
+                <img id="check" style="display: none; width: 10rem;" src="/img/check.png" alt="">
+                <div id="loaderAnimation" class="loader-container" style="display: none;">
+                    <div class="lds-ripple"><div></div><div></div></div>
+                </div>
+                <div id="cardContainer" class="loader-container" style="display: none;">
+                    <div class="card-1">
+                        <div class="card-inner">
+                            <div style="width: 100%; display: flex; justify-content: space-between;">
+                                <div class="circles-container" style="position: relative; width: 4rem; display: flex;">
+                                    <div class="circle1"></div>
+                                    <div class="circle2"></div>
+                                </div>
+                                <div>
+                                    <img src="img/contactless.png" alt="contacless" style="height: 2.5rem;">
+                                </div>
+                            </div>
+                            <div style="width: 100%; text-align: left; margin-top: 1.7rem;">
+                                <label id="CardNumber" class="card-number" for="">1234 1234 1234 1234</label>
+                            </div>
+                            <div style="width: 100%; text-align: left; margin-top: 0.3rem;">
+                                <label id="CardName" class="card-name" for="">Juan Tzoc</label>
+                            </div>
+                            <div style="position: absolute; right: 7%; bottom: 10%;">
+                                <label id="CardExpiration" class="card-name" for="">21/27</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-pin">
+                    <label id="pinMessage" for="">Esperando...</label>
+                    <!-- <input type="password" placeholder="Ej: 1234" name="PIN" id="PIN" class="input-pin" disabled> -->
+                    <input type="text" placeholder="Monto" name="Monto" id="Monto" class="input-pin">
+                    <button id="iniciarServicio" class="button-PIN hidden-bPIN">Pagar</button>
+                </form>
+            </div>
         </div>
     </div>
+    <script src="Lector_Cards/lector.js"></script>
 </body>
 </html>
