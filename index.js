@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/lector', (req, res) => {
+    res.sendFile(__dirname + '/public/Lector_Cards/lector.html');
+});
+
 const port = new SerialPort({
     path: 'COM3',
     baudRate: 115200
