@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="preload" href="../../css/normalize.css" as="style">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,14 +69,14 @@
                             <form action="" class="form form-payment" style="display: flex; justify-content: center;">
                                 <div class="inputs-form">
                                     <legend>Pago de servicios</legend>
-                                    <input id="account" type="text" name="account" placeholder="Cuenta">
-                                    <input id="reference" type="number" name="reference" placeholder="Referencia">
+                                    <input id="account" type="text" name="account" placeholder="Cuenta" disabled>
                                     <select class="selectService" name="serviceSelected" id="serviceSelected">
                                         <option value="" disabled selected hidden>Servicio</option>
-                                        <option value="E">Energía Eléctrica</option>
-                                        <option value="A">Agua Potable</option>
+                                        <option value="1">Energía Eléctrica</option>
+                                        <option value="2">Agua Potable</option>
                                     </select>
                                     <input id="amount" type="number" name="amount" placeholder="Monto">
+                                    <input id="reference" type="text" name="reference" placeholder="Referencia">
                                     <div style="width: 100%; text-align: center;">
                                         <button id="payService">Pagar</button>
                                     </div>
@@ -83,6 +84,24 @@
                             </form>
                         </div>
                     </div>
+            </div>
+        </div>
+        <div id="popup-confirmation" class="popup-confirmation"
+            style="width: 25rem; 
+            visibility: hidden;
+            height: 30rem; 
+            background: #FFF; 
+            box-shadow: 2px 3px 23px -3px rgba(0,0,0,0.75);
+            border-radius: 10px;
+            display: flex; justify-content: center; align-items: center;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div style="display: flex; flex-direction: column; align-items: center; margin-inline: 4rem;">
+                <img id="check" style="width: 10rem;" src="../../img/check.png" alt="">
+                <label for="" 
+                style="font-size: 24px; margin-block: 2rem; font-weight: 700; text-align: center;">
+                    Pago realizado exitosamente.
+                </label>
+                <button id="accept">Aceptar</button>
             </div>
         </div>
     </div>

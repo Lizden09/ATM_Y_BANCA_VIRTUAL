@@ -11,6 +11,7 @@ $(document).ready(() => {
     .then(res => {
         console.log(res);
         if(res.statusCode == 200){
+            localStorage.setItem('cardNumber', res.data.account[0].cards[0].card_number);
             $('#userNameHeader').text(res.data.user_name);
             $('#cardNumberHeader').text(res.data.account[0].cards[0].card_number);
         }

@@ -101,9 +101,9 @@ $('#iniciarServicio').click( event => {
             iniciarServicio.style.display = "none";
             check.style.display = "flex";
 
-            setTimeout(() => {
-                location.reload();
-            }, 5000);
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 5000);
         }
     })
 });

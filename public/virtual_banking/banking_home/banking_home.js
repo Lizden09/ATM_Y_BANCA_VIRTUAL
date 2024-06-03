@@ -23,7 +23,7 @@ const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Tilin', 'Tilina'],
+        labels: ['Usuario1', 'Usuario2'],
         datasets: [{
             label: 'Age',
             data: [22, 21],

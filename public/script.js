@@ -99,7 +99,7 @@ openPopUp.addEventListener('click', (event)=>{
 });
    
 // cerrar popup
-close.onclick = function(){
+closeBTN.onclick = function(){
     Popup.style.visibility = "hidden";
 }
 
@@ -125,7 +125,7 @@ $(document).ready(function() {
             user_name: username,
             password: password,
             email: email,
-            identification: id
+            identification: id,
         }
 
         console.log(signUpRequest);
@@ -160,7 +160,7 @@ $(document).ready(function() {
             customerDataJSON[data.name] = data.value;
         });
 
-        signUpRequest = {...signUpRequest, ...customerDataJSON};
+        signUpRequest = {...signUpRequest, ...customerDataJSON, role_id: 1};
 
         console.log(signUpRequest);
         fetch('https://atmsystemapibank.onrender.com/user/add_user/new_customer', {
